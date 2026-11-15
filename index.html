@@ -1,20 +1,23 @@
-<html>
-	<head>
-		<title>Práctica 1 - Despliegue de aplicaciones web</title>
-		<link rel="stylesheet" href="css/estilos.css">
-	</head>
-	<body>
-		<?php
-		echo "<h1>Servidor DAW</h1>";
-		echo "<p> Rafael S&aacutenchez Gonz&aacutelez – Pr&aacute;ctica 1 DAW</p>";
-		echo "<p>Fecha: " . date("d/m/Y H:i:s") . "</p>";
-		echo "<p>PHP: " . PHP_VERSION . "</p>";
-		echo "<p>Servidor: " . $_SERVER['SERVER_NAME'] . "</p>";
-		echo "<p>IP cliente: " . $_SERVER['REMOTE_ADDR'] . "</p>";
-		echo "<p>Protocolo: " .
-				((!empty($_SERVER['HTTPS'])) ? "HTTPS" : "HTTP")
-				. "</p>";
-		?>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Práctica 1 - Despliegue de aplicaciones web</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <h1>Servidor DAW</h1>
+        <p>Rafael Sánchez González – Práctica 1 DAW</p>
+        <p>Fecha del navegador: <span id="fecha">No disponible</span></p>
+        <p>PHP: no disponible en GitHub Pages</p>
+        <p>Servidor: <span id="servidor">No disponible</span></p>
+        <p>IP cliente: no disponible en esta página estática</p>
+        <p>Protocolo: <span id="protocolo">No disponible</span></p>
+        <script>
+            document.getElementById('fecha').textContent = new Date().toLocaleString('es-ES');
+            document.getElementById('servidor').textContent = window.location.hostname || 'Archivo local';
+            document.getElementById('protocolo').textContent = window.location.protocol.replace(':', '').toUpperCase();
+        </script>
+    </body>
 </html>
-
